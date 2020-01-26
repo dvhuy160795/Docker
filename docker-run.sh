@@ -10,7 +10,7 @@ cd $PROJECT_DIR/Docker
 docker network inspect my-network &>/dev/null || docker network create --driver bridge my-network
 
 #run docker-compose
-docker-compose $DOCKER_FILES $@
+docker-compose up
 
 cd Docker
 composer install
