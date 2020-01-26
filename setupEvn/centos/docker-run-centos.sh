@@ -1,5 +1,4 @@
 #!/bin/bash
-sudo yum install php php-cli php-zip wget unzip
 wget -q http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 wget -q https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
@@ -12,8 +11,8 @@ FOR PHP 7.2 EXECUTE:
 # yum-config-manager --enable remi-php72
 FOR PHP 7.3 EXECUTE:
 FOR PHP 7.4 EXECUTE:
-yum install php
-yum update
+sudo yum install php php-cli php-zip wget unzip php-xml php-mbstring
+sudo yum update
 
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php -r "if (hash_file('sha384', 'composer-setup.php') === 'c5b9b6d368201a9db6f74e2611495f369991b72d9c8cbd3ffbc63edff210eb73d46ffbfce88669ad33695ef77dc76976') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
