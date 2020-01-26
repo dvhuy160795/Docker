@@ -19,4 +19,5 @@ composer install
 
 #run docker-compose
 cd ..
+cd ..
 docker-compose up

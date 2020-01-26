@@ -34,4 +34,5 @@ chmod -R 777 storage/
 php /usr/local/bin/composer update
 #run docker-compose
 cd ..
+cd ..
 docker-compose up
