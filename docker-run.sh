@@ -1,4 +1,6 @@
 #!/bin/bash
+composer create-project --prefer-dist laravel/laravel Docker
+
 cd Docker
 composer install
 
