@@ -16,6 +16,9 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.3/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
+cd ..
+cd ..
+
 php /usr/local/bin/composer create-project --prefer-dist laravel/laravel Docker
 
 cd Docker

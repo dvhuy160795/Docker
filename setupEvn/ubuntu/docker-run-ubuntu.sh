@@ -8,6 +8,9 @@ sudo php composer-setup.php --install-dir=/usr/bin --filename=composer
 sudo apt-get install docker
 sudo apt-get install docker-compose
 
+cd ..
+cd ..
+
 composer create-project --prefer-dist laravel/laravel Docker
 
 cd Docker
