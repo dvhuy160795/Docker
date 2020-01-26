@@ -31,7 +31,7 @@ php /usr/local/bin/composer create-project --prefer-dist laravel/laravel Docker
 cd Docker
 chmod -R 777 storage/
 
-php /usr/local/bin/composer install
+php /usr/local/bin/composer update
 #run docker-compose
 cd ..
 docker-compose up
