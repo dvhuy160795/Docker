@@ -1,17 +1,11 @@
 #!/bin/bash
-wget -q http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-wget -q https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+sudo yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm 
+sudo yum -y install epel-release yum-utils
 
-# rpm -i remi-release-7.rpm epel-release-latest-7.noarch.rpm
-FOR PHP 7.0 EXECUTE:
-# yum-config-manager --enable remi-php70
-FOR PHP 7.1 EXECUTE:
-# yum-config-manager --enable remi-php71
-FOR PHP 7.2 EXECUTE:
-# yum-config-manager --enable remi-php72
-FOR PHP 7.3 EXECUTE:
-FOR PHP 7.4 EXECUTE:
-sudo yum install php php-cli php-zip wget unzip php-xml php-mbstring
+sudo yum-config-manager --disable remi-php54
+sudo yum-config-manager --enable remi-php73
+
+sudo yum -y install php php-cli php-fpm php-mysqlnd php-zip php-devel php-gd php-mcrypt php-mbstring php-curl php-xml php-pear php-bcmath php-json
 sudo yum update
 
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
