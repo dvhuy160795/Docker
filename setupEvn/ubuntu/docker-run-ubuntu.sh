@@ -19,5 +19,5 @@ chmod -R 777 $SOURCEPATH/../../Docker/storage/
 (cd $SOURCEPATH/../../Docker && exec chmod -R 777 storage/)
 
 #run docker-compose
-
+docker rm -f huydv-mysql huydv-httpd huydv-php huydv-memcached
 docker-compose -f $SOURCEPATH/../docker-compose.yml up
