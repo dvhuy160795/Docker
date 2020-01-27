@@ -11,7 +11,9 @@ services:
       - "--conn-limit=2048"
       - "--memory-limit=2048"
   huydv-apache:
-    image: "httpd"
+    build:
+      dockerfile: DockerfileHttpd
+      context: ./
     container_name: huydv-httpd
     restart: always
     hostname: httpd
@@ -21,7 +23,7 @@ services:
       - "8888:80"
       - "443:443"
     volumes:
-      - ./Docker:/home/Docker
+      - .././Docker:/home/Docker
       - ./httpd.conf:/usr/local/apache2/conf/httpd.conf
   huydv-mysql:
     image: "mysql"
@@ -36,19 +38,19 @@ services:
       MYSQL_USER: huydv
       MYSQL_PASSWORD: a123456
     volumes:
-      - ./db:/var/lib/mysql
+      - .././db:/var/lib/mysql
       - ./my.cnf:/etc/mysql/my.cnf
   huydv-php:
     container_name: huydv-php
     build:
-      dockerfile: Dockerfile
+      dockerfile: DockerfilePhp
       context: ./
     hostname: php
     restart: always
     networks:
       - my-network
     volumes:
-      - ./Docker:/home/Docker
+      - .././Docker:/home/Docker
 
 #network
 networks:
@@ -59,6 +61,6 @@ networks:
 volumes:
   dir-site:
     driver_opts:
-      device: /Docker/
+      device: ../Docker/
       o: bind
       type: tmpfs

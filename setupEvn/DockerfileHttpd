@@ -1,0 +1,5 @@
+FROM httpd
+
+WORKDIR /home/Docker
+COPY ./ /home/Docker
+RUN chmod -R 777 /home/Docker/storage/

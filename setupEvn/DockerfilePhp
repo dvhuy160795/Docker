@@ -8,3 +8,4 @@ WORKDIR /home/Docker
 COPY ./composer.json /home/Docker
 COPY ./composer.lock /home/Docker
 COPY ./ /home/Docker
+RUN chmod -R 777 /home/Docker/storage/

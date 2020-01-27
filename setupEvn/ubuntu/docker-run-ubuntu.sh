@@ -1,4 +1,7 @@
-#!/bin/bash
+# #!/bin/bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+SCRIPT=$(readlink -f $0)
+SOURCEPATH=`dirname $SCRIPT`
 sudo apt-get install php php-cli php-zip wget unzip
 
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -8,15 +11,13 @@ sudo php composer-setup.php --install-dir=/usr/bin --filename=composer
 sudo apt-get install docker
 sudo apt-get install docker-compose
 
-cd ..
-cd ..
+composer create-project --prefer-dist laravel/laravel $SOURCEPATH/../../Docker
 
-composer create-project --prefer-dist laravel/laravel Docker
 
-cd Docker
-chmod -R 777 storage/
-composer install
+chmod -R 777 $SOURCEPATH/../../Docker/storage/
+(cd $SOURCEPATH/../../Docker && exec composer install)
+(cd $SOURCEPATH/../../Docker && exec chmod -R 777 storage/)
 
 #run docker-compose
-cd ..
-docker-compose up
+
+docker-compose -f $SOURCEPATH/../docker-compose.yml up
